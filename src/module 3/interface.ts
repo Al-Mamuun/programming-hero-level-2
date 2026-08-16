@@ -37,3 +37,14 @@ const user : IExtendedUser = {
 // };
 
 // userWithInterface.name = "Interface Bob";
+
+
+type AddFunction = (num1:number, num2:number) => number;
+interface IAddFunction {
+    (num1:number,num2:number):number;
+}
+const addNumber : AddFunction = (num1, num2) => num1 + num2;
+const addNumber1 : IAddFunction = (num1, num2) => num1 + num2;
+
+addNumber(5, 10); // returns 15
+addNumber1(5, 10); // returns 15
