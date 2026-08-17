@@ -48,3 +48,4 @@ const myInfo = {
 }
 
 const newInfo = addMeInMyCrushMind(myInfo);
+const newInfo1 = addMeInMyCrushMind<{name:string,age:number,salary:number}>(myInfo); 
