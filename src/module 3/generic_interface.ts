@@ -1,32 +1,41 @@
-type GenericArray<T> = Array<T>;
+// Generic Interface
 
-
-type GenericTuple<X, Y> = [X, Y];
-
-const relation : GenericTuple<string, string> = ['Mamun', 'Rafi'];
-
-const rollNumber : GenericArray<number> = [1,2,3,4,5];
-
-const nameList : GenericArray<string> = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
-
-const booleanList : GenericArray<boolean> = [true, false, true, false, true];
-
-type NameRollType = {name: string, roll: number};
-
-const newMamun : GenericArray<NameRollType> = [
-    {name: 'Mamun', roll: 1},{name: 'Rafi', roll: 2},{name: 'Sakib', roll: 3},{name: 'Rasel', roll: 4}
-];
-
-console.log(newMamun);
-
-
-const newMamun2: GenericTuple <{name: string,age: number}, boolean> = [{name: 'Mamun', age: 22}, true];
-
-// type RelationWithSalaryType = {name: string, salary: number};
-
-interface RelationWithSalaryTypeInterface {
-    name: string;
-    salary: number;
+interface CrushInterface<T,U = null>{
+    name:string,
+    husband: T,
+    wife ?: U
 }
 
-const newMamun3: GenericTuple <RelationWithSalaryTypeInterface, boolean> = [{name: 'Mamun', salary: 22}, true];
+
+const crush1 : CrushInterface<boolean,string> = {name: "Sathi", husband: true, wife: "Setu"};
+
+const crush2 : CrushInterface<string> = {name: "Sathi", husband: 'Mamun'};
+
+const crush3 : CrushInterface<object> = {name:"Sathi",husband: {name:"Mamun",age: "22"}};
+
+const crush4 : CrushInterface<{name:string,age:number}> = {name:"Sathi",husband: {name:"Mamun",age: 22}};
+
+type newMamun = {name: string, age: number};
+
+
+const crush5 : CrushInterface<newMamun> = {name:"Sathi",husband: {name:"Mamun",age: 22}};
+
+interface HusbandInterface{
+    name: string;
+    age: number;
+}
+
+const crush6 : CrushInterface<HusbandInterface> = {name:"Sathi",husband: {name:"Mamun",age: 22}};
+
+
+const crush7 : CrushInterface<{name:string,age:number}, {name:string,age:number}> = 
+{name:"Sathi",
+    husband: {name:"Mamun",age: 22}, 
+    wife: {name:"Setu",age: 20}
+};
+
+const crush8 : CrushInterface<HusbandInterface,HusbandInterface> = 
+{name:"Sathi",
+    husband: {name:"Mamun",age: 22}, 
+    wife: {name:"Setu",age: 20}
+};
