@@ -16,3 +16,10 @@ const getPromiseData = async () : Promise<string> => {
    return data;
 };
 
+
+getPromiseData().then((data) => {
+    console.log("Promise resolved with data:", data);
+}).catch((error) => {
+    console.error("Promise rejected with error:", error);
+}   );
+
